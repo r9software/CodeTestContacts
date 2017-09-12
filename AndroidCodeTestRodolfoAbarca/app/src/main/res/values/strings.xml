@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Android Code Test Rodolfo Abarca</string>
+    <string name="app_name">BaseApp</string>
+    <string name="preference_file_key">com.android.code.test.rodolfo.abarca</string>
 </resources>
