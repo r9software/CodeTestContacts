@@ -1,7 +1,7 @@
 package com.midevs.androidcodetestrodolfoabarca;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.midevs.androidcodetestrodolfoabarca.utils.AlertMaker;
@@ -11,7 +11,7 @@ import com.midevs.androidcodetestrodolfoabarca.utils.Navigator;
 /**
  * Created by asus on 06/08/2016.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected Navigator navigator;
     protected AlertMaker alertMaker;

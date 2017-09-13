@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#536dfe</color>
+    <color name="colorPrimaryDark">#7f8cdf</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <color name="color_flash_screen_background">#313943</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="symptom_color_selected">#003366</color>
+    <color name="reaction_color_selected">#003366</color>
+    <color name="static_text_color">#003366</color>
+    <color name="journal_entry_listitem_text_color">#003366</color>
+    <color name="note_text_disabled">#333333</color>
+    <color name="blue">#0000FF</color>
+    <color name="navy">#6699FF</color>
+    <color name="sky">#0099CC</color>
+    <color name="gray">#808080</color>
+    <color name="gray_login">#4a4e64</color>
+    <color name="light_gray">#bcbfce</color>
+    <color name="title_gray">#4a4e64</color>
+    <color name="text_gray">#f3f4f7</color>
+    <color name="light_gray_02">#d4d4d4</color>
+    <color name="dark">#000015</color>
+    <color name="light_green">#336666</color>
+    <color name="orange">#e33d1b</color>
+    <color name="dark_orange">#cc2303</color>
+    <color name="login_buttons">#8f76ec</color>
+    <color name="subtitle_text_color">#484c63</color>
+    <color name="background_app_color">#f3f4f7</color>
 </resources>

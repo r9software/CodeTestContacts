@@ -136,19 +136,15 @@ final class EngineWorker
     private final BlockingQueue<ITask> workerTasks;
 
     private final ITaskEngine ITaskRunner;
+    private boolean inCancel;
 
-
-    EngineWoboolean inCancel;
-
-    boolrridrker(ITaskEngine ITaskRunner) {
+    EngineWorker(ITaskEngine ITaskRunner) {
 
         workerTasks = new LinkedBlockingQueue<>();
         this.ITaskRunner = ITaskRunner;
     }
 
-    @Oveate
-    e
-
+    @Override
     public void run() {
 
         while (ITaskRunner.isRunning()) {
@@ -184,8 +180,7 @@ final class EngineWorker
         }
     }
 
-    private
-    synchronized void handleRecurrenceTask(ITask ITask) {
+    private synchronized void handleRecurrenceTask(ITask ITask) {
 
         if (ITask != null) {
             if (ITask.getTaskType()
@@ -202,8 +197,7 @@ final class EngineWorker
         }
     }
 
-    private
-    synchronized void handleConditionalTask(ITask iTask) {
+    private synchronized void handleConditionalTask(ITask iTask) {
 
         if (iTask != null) {
             if (iTask instanceof ConditionalTask) {
@@ -215,8 +209,7 @@ final class EngineWorker
         }
     }
 
-    privean
-    newTask(ITask ITask) {
+    boolean newTask(ITask ITask) {
 
         synchronized (workerTasks) {
             while (inCancel) {

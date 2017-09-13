@@ -1,8 +1,6 @@
 package com.midevs.androidcodetestrodolfoabarca;
 
-
-public class MainActivity extends BaseActivity {
-
+public class AddContactActivity extends BaseActivity {
 
     @Override
     public void initialize() {
@@ -11,6 +9,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.activity_main;
+        return R.layout.activity_add_contact;
     }
 }
