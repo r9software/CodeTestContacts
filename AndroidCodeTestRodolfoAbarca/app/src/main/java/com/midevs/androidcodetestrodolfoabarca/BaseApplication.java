@@ -16,7 +16,7 @@ public class BaseApplication extends Application {
     private static MidDevLDB midDevLDB;
     private static ITaskEngine taskEngine;
 
-    public static MidDevLDB getMishaLDB() {
+    public static MidDevLDB getMidDevLDB() {
         return midDevLDB;
     }
 

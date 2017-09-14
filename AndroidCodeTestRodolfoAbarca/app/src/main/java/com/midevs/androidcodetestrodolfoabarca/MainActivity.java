@@ -4,7 +4,6 @@ package com.midevs.androidcodetestrodolfoabarca;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +22,6 @@ import com.midevs.androidcodetestrodolfoabarca.data.Contact;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
 
 public class MainActivity extends BaseActivity implements SortedListAdapter.Callback {
 
@@ -58,29 +56,30 @@ public class MainActivity extends BaseActivity implements SortedListAdapter.Call
     @Override
     public void initialize() {
         setSupportActionBar((Toolbar) findViewById(R.id.tool_bar));
+        findViewById(R.id.main_add_contact).setOnClickListener(view -> navigator.navigateToAddContact());
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         editProgressBar = (ProgressBar) findViewById(R.id.edit_progress_bar);
         mAdapter = new ContactsAdapter(this, COMPARATOR, model -> {
-            final String message = model.getFullName() + " Clicked";
-            Snackbar.make(findViewById(R.id.recycler_view), message, Snackbar.LENGTH_SHORT).show();
+            navigator.navigateToDetailContact(model.getMid());
         });
 
         mAdapter.addCallback(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(mAdapter);
-
-        contacts = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-            Contact a = new Contact();
-            a.setmId(i + "");
-            a.setName(UUID.randomUUID().toString());
-            a.setLastName("Last Name " + i);
-            contacts.add(a);
-        }
         mAdapter.edit()
-                .replaceAll(contacts)
+                .replaceAll(Contact.$getContacts())
                 .commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (recyclerView != null && mAdapter != null) {
+            mAdapter.edit()
+                    .replaceAll(Contact.$getContacts())
+                    .commit();
+        }
     }
 
     @Override

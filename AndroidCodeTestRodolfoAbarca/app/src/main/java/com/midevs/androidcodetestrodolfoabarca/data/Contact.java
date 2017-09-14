@@ -3,15 +3,24 @@ package com.midevs.androidcodetestrodolfoabarca.data;
 import android.support.annotation.NonNull;
 
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
+import com.middevs.local.android.sdk.json.JSONObject;
+import com.middevs.local.android.sdk.task.handler.core.engine.ITaskEngine;
+import com.middevs.local.android.sdk.task.handler.core.engine.TaskListener;
+import com.middevs.local.android.sdk.task.handler.core.task.Task;
+import com.middevs.local.db.core.MidDevLDB;
+import com.middevs.local.db.model.IMigrationProtocol;
+import com.middevs.local.db.model.MModel;
+import com.midevs.androidcodetestrodolfoabarca.BaseApplication;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by master on 13/09/17.
  */
 
-public class Contact implements SortedListAdapter.ViewModel {
-    private String mId;
+public class Contact extends MModel implements SortedListAdapter.ViewModel {
     private String lastName;
     private int day;
     private int month;
@@ -20,6 +29,34 @@ public class Contact implements SortedListAdapter.ViewModel {
     private ArrayList<String> phone;
     private ArrayList<String> email;
     private String name;
+
+    public Contact() {
+        setMid(UUID.randomUUID().toString());
+    }
+
+    public static Contact $find(String mid) {
+        JSONObject condition = new JSONObject();
+        JSONObject subCondition = new JSONObject();
+        MidDevLDB midDevLDB = BaseApplication.getMidDevLDB();
+        subCondition.putOpt("$=", mid);
+        condition.putOpt("mid", subCondition.clone());
+        subCondition.clear();
+        List<Contact> contacts = midDevLDB.find(condition, -1, -1, Contact.class);
+        if (contacts.size() == 1) {
+            return contacts.get(0);
+        }
+        return null;
+    }
+
+    public static List<Contact> $getContacts() {
+
+
+        JSONObject condition = new JSONObject();
+        JSONObject subCondition = new JSONObject();
+        MidDevLDB midDevLDB = BaseApplication.getMidDevLDB();
+        List<Contact> contacts = midDevLDB.find(condition, -1, -1, Contact.class);
+        return contacts;
+    }
 
     public String getName() {
         return name;
@@ -33,7 +70,7 @@ public class Contact implements SortedListAdapter.ViewModel {
     public <T> boolean isSameModelAs(@NonNull T item) {
         if (item instanceof Contact) {
             final Contact contact = (Contact) item;
-            return contact.getID().equalsIgnoreCase(getmId());
+            return contact.getMid().equalsIgnoreCase(getMid());
         }
         return false;
     }
@@ -45,21 +82,9 @@ public class Contact implements SortedListAdapter.ViewModel {
             if (!getName().equalsIgnoreCase(other.getName())) {
                 return false;
             }
-            return getmId() != null ? getmId().equals(other.getID()) : other.getID() == null;
+            return getMid() != null ? getMid().equals(other.getMid()) : other.getMid() == null;
         }
         return false;
-    }
-
-    public String getID() {
-        return getmId();
-    }
-
-    public String getmId() {
-        return mId;
-    }
-
-    public void setmId(String mId) {
-        this.mId = mId;
     }
 
     public String getLastName() {
@@ -120,5 +145,35 @@ public class Contact implements SortedListAdapter.ViewModel {
 
     public String getFullName() {
         return name + " " + lastName;
+    }
+
+    @Override
+    public String modelName() {
+        return "CONTACTS";
+    }
+
+    @Override
+    protected IMigrationProtocol $getMigrationProtocol(int version) {
+        return null;
+    }
+
+    @Override
+    public void $saveDB() {
+        BaseApplication.getTaskEngine().add(new Task() {
+
+            @Override
+            public void execute(ITaskEngine iTaskRunner,
+                                TaskListener listener) {
+
+                MModel.$saveDB(Contact.this, BaseApplication.getMidDevLDB());
+                listener.finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void $delete(boolean keep) {
+        MModel.$saveDB(this, BaseApplication.getMidDevLDB());
     }
 }

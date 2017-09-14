@@ -13,6 +13,7 @@ import com.midevs.androidcodetestrodolfoabarca.utils.Navigator;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    public static final String CONTACT_ID = "CONTACT_ID";
     protected Navigator navigator;
     protected AlertMaker alertMaker;
 
