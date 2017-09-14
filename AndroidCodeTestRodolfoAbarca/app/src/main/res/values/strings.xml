@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BaseApp</string>
+    <string name="app_name">Android Code Test Rodolfo Abarca</string>
     <string name="preference_file_key">com.android.code.test.rodolfo.abarca</string>
     <string name="first_name">First Name</string>
     <string name="address">Address</string>
@@ -7,7 +7,7 @@
     <string name="phone">Phone</string>
     <string name="add_alternative_number">Add alternative number</string>
     <string name="email">Email</string>
-    <string name="add_alternative_email">Add alternative numbers</string>
+    <string name="add_alternative_email">Add alternative email</string>
     <string name="create">Create</string>
     <string name="last_name">Last Name</string>
     <string name="date_of_birth">Date of Birth</string>

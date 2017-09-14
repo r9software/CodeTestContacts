@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements SortedListAdapter.Callback {
+public class MainActivity extends BaseActivity implements SortedListAdapter.Callback, SearchView.OnQueryTextListener {
 
     private static final Comparator<Contact> COMPARATOR = new SortedListAdapter.ComparatorBuilder<Contact>()
             .setOrderForModel(Contact.class, new Comparator<Contact>() {
@@ -67,8 +67,10 @@ public class MainActivity extends BaseActivity implements SortedListAdapter.Call
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(mAdapter);
+        contacts = Contact.$getContacts();
+        mAdapter.edit().removeAll();
         mAdapter.edit()
-                .replaceAll(Contact.$getContacts())
+                .replaceAll(contacts)
                 .commit();
     }
 
@@ -76,8 +78,10 @@ public class MainActivity extends BaseActivity implements SortedListAdapter.Call
     protected void onResume() {
         super.onResume();
         if (recyclerView != null && mAdapter != null) {
+            contacts = Contact.$getContacts();
+            mAdapter.edit().removeAll().commit();
             mAdapter.edit()
-                    .replaceAll(Contact.$getContacts())
+                    .replaceAll(contacts)
                     .commit();
         }
     }
@@ -93,21 +97,7 @@ public class MainActivity extends BaseActivity implements SortedListAdapter.Call
 
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                final List<Contact> filteredModelList = filter(contacts, query);
-                mAdapter.edit()
-                        .replaceAll(filteredModelList)
-                        .commit();
-                return true;
-            }
-        });
+        searchView.setOnQueryTextListener(this);
         return true;
     }
 
@@ -159,5 +149,23 @@ public class MainActivity extends BaseActivity implements SortedListAdapter.Call
             }
         });
         mAnimator.start();
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String query) {
+        final List<Contact> filteredModelList = filter(contacts, query);
+
+        mAdapter.edit().removeAll().commit();
+        mAdapter.edit()
+                .add(filteredModelList)
+                .commit();
+
+        return true;
     }
 }

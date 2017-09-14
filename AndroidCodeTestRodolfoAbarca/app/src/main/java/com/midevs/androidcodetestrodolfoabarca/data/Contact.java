@@ -53,6 +53,8 @@ public class Contact extends MModel implements SortedListAdapter.ViewModel {
 
         JSONObject condition = new JSONObject();
         JSONObject subCondition = new JSONObject();
+        subCondition.putOpt("$=", false);
+        condition.putOpt("deleted", subCondition.clone());
         MidDevLDB midDevLDB = BaseApplication.getMidDevLDB();
         List<Contact> contacts = midDevLDB.find(condition, -1, -1, Contact.class);
         return contacts;
@@ -174,6 +176,6 @@ public class Contact extends MModel implements SortedListAdapter.ViewModel {
 
     @Override
     public void $delete(boolean keep) {
-        MModel.$saveDB(this, BaseApplication.getMidDevLDB());
+        MModel.$deleteDB(this, BaseApplication.getMidDevLDB());
     }
 }

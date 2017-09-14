@@ -110,7 +110,7 @@
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/add_address_edit"
+                    android:id="@+id/add_contact_address_edit"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="10dp"
@@ -126,8 +126,16 @@
                     android:textColor="@color/subtitle_text_color"
                     android:textSize="15sp" />
 
+                <LinearLayout
+                    android:id="@+id/add_contact_add_address_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/add_contact_add_number"
+                    android:id="@+id/add_contact_add_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -146,6 +154,7 @@
                 android:orientation="vertical">
 
                 <android.support.v7.widget.CardView
+                    android:id="@+id/add_contact_add_date_birth"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
@@ -159,13 +168,13 @@
 
 
                     <TextView
-                        android:id="@+id/add_contact_add_dateBirth"
+                        android:id="@+id/add_contact_date_birth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center_vertical"
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="5dp"
-                        android:text="12/sept/2017"
+                        android:text="Select date of birth"
                         android:textColor="@color/colorPrimary"
                         android:textSize="15sp" />
 
@@ -216,6 +225,8 @@
                         android:inputType="phone"
                         android:maxLines="1"
                         android:paddingEnd="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="1dp"
                         android:paddingStart="5dp"
                         android:textColor="@color/subtitle_text_color"
                         android:textSize="15sp" />
@@ -237,6 +248,13 @@
                 android:textSize="13sp"
                 android:visibility="gone" />
 
+            <LinearLayout
+                android:id="@+id/add_contact_add_phones_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
             <TextView
                 android:id="@+id/add_alternative_add_number"
                 android:layout_width="wrap_content"
@@ -285,6 +303,13 @@
                     android:textColor="@color/subtitle_text_color"
                     android:textSize="15sp" />
 
+                <LinearLayout
+                    android:id="@+id/add_contact_add_email_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
                 <TextView
                     android:id="@+id/add_alternative_email"
                     android:layout_width="wrap_content"
@@ -300,7 +325,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/add_view_create"
+                android:id="@+id/add_contact_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"

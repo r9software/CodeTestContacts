@@ -39,4 +39,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.github.wrdlbrnft:sorted-list-adapter:0.2.0.19'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile('com.wdullaer:materialdatetimepicker:3.2.0') {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v13'
+    }
 }
