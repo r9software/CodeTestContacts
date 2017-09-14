@@ -4,6 +4,248 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/contact_detail_image_parent_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:background="@color/light_gray_02"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_person" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/contact_detail_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="@color/background_app_color"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight=".5"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/first_name"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/contact_detail_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/text_view_background"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:paddingEnd="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="1dp"
+                        android:paddingStart="5dp"
+                        android:textColor="@color/subtitle_text_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight=".5"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/last_name"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/contact_detail_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/text_view_background"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:paddingEnd="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="1dp"
+                        android:paddingStart="5dp"
+                        android:textColor="@color/subtitle_text_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight=".5"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/date_of_birth"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/contact_detail_date_of_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/text_view_background"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:paddingEnd="1dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="1dp"
+                        android:paddingStart="5dp"
+                        android:textColor="@color/subtitle_text_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contact_detail_address_field_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/address"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/contact_detail_address_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/phone"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/contact_detail_phone_number_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="8dp"
+                        android:padding="8dp"
+                        android:text="@string/email"
+                        android:textAllCaps="true"
+                        android:textColor="@color/light_gray"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:id="@+id/contact_detail_email_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/contact_detail_edit"
         android:layout_width="wrap_content"
@@ -12,249 +254,8 @@
         android:clickable="true"
         android:src="@drawable/ic_edit"
         app:fabSize="normal"
-        app:layout_anchor="@+id/contact_detail_image_parent_view"
+        app:layout_anchor="@id/contact_detail_image_parent_view"
         app:layout_anchorGravity="bottom|right|end" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/contact_detail_image_parent_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:background="@color/light_gray_02"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_person" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/contact_detail_parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:background="@color/background_app_color"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight=".5"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/first_name"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/contact_detail_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".5"
-                    android:background="@drawable/text_view_background"
-                    android:inputType="textCapSentences"
-                    android:maxLines="1"
-                    android:paddingEnd="1dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="1dp"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/subtitle_text_color"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight=".5"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/last_name"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/contact_detail_last_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".5"
-                    android:background="@drawable/text_view_background"
-                    android:inputType="textCapSentences"
-                    android:maxLines="1"
-                    android:paddingEnd="1dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="1dp"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/subtitle_text_color"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight=".5"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/date_of_birth"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/contact_detail_date_of_birth"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".5"
-                    android:background="@drawable/text_view_background"
-                    android:inputType="textCapSentences"
-                    android:maxLines="1"
-                    android:paddingEnd="1dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="1dp"
-                    android:paddingStart="5dp"
-                    android:textColor="@color/subtitle_text_color"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/contact_detail_address_field_parent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/address"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <LinearLayout
-                    android:id="@+id/contact_detail_address_parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/phone"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <LinearLayout
-                    android:id="@+id/contact_detail_phone_number_parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingExtra="8dp"
-                    android:padding="8dp"
-                    android:text="@string/email"
-                    android:textAllCaps="true"
-                    android:textColor="@color/light_gray"
-                    android:textSize="13sp" />
-
-                <LinearLayout
-                    android:id="@+id/contact_detail_email_parent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-    </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/contact_detail_delete"
