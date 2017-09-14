@@ -15,6 +15,9 @@
         app:layout_anchor="@+id/contact_detail_image_parent_view"
         app:layout_anchorGravity="bottom|right|end" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,9 +38,7 @@
                 android:src="@drawable/ic_person" />
         </LinearLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
         <LinearLayout
             android:id="@+id/contact_detail_parent"
             android:layout_width="match_parent"
@@ -166,7 +167,7 @@
             <LinearLayout
                 android:id="@+id/contact_detail_address_field_parent"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -195,7 +196,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -224,7 +225,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -251,9 +252,9 @@
 
             </LinearLayout>
         </LinearLayout>
-        </ScrollView>
 
     </LinearLayout>
+    </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/contact_detail_delete"

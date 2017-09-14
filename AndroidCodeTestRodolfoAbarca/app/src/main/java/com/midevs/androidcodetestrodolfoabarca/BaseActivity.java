@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.midevs.androidcodetestrodolfoabarca.utils.AlertMaker;
 import com.midevs.androidcodetestrodolfoabarca.utils.Navigator;
 
 
@@ -14,13 +13,14 @@ import com.midevs.androidcodetestrodolfoabarca.utils.Navigator;
 public abstract class BaseActivity extends AppCompatActivity {
 
     public static final String CONTACT_ID = "CONTACT_ID";
+    protected static final int EMAIL_TYPE = 0;
+    protected static final int PHONE_TYPE = 1;
+    protected static final int ADDRESS_TYPE = 2;
     protected Navigator navigator;
-    protected AlertMaker alertMaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        alertMaker = new AlertMaker();
         navigator = new Navigator(this);
         Log.e("Activity Created", this.getClass().getCanonicalName() + " created");
         setContentView(getContentLayout());

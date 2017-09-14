@@ -19,9 +19,9 @@ import java.util.Calendar;
 
 public class AddContactActivity extends BaseActivity implements DatePickerDialog.OnDateSetListener {
 
-    private static final int EMAIL_TYPE = 0;
-    private static final int PHONE_TYPE = 1;
-    private static final int ADDRESS_TYPE = 2;
+    protected static final int EMAIL_TYPE = 0;
+    protected static final int PHONE_TYPE = 1;
+    protected static final int ADDRESS_TYPE = 2;
     private Contact contact;
     private ArrayList<EditText> alternativeEmails = new ArrayList<>(), alternativePhones = new ArrayList<>(), alternativeAddresses = new ArrayList<>();
     private EditText firstName;
@@ -119,6 +119,7 @@ public class AddContactActivity extends BaseActivity implements DatePickerDialog
 
     private void showCalendarView() {
         DatePickerDialog dialog = DatePickerDialog.newInstance(this, 1985, 4, 4);
+        dialog.setVersion(DatePickerDialog.Version.VERSION_1);
         dialog.show(getFragmentManager(), "DatePicker");
     }
 
@@ -182,6 +183,7 @@ public class AddContactActivity extends BaseActivity implements DatePickerDialog
             for (String string : contact.getPhone()) {
                 parentPhonesLayout.addView(createTextView(string, parentPhonesLayout, PHONE_TYPE));
             }
+            contact.getPhone().clear();
         }
         if (contact.getAddresses().size() > 0) {
             address.setText(contact.getAddresses().get(0));
@@ -189,6 +191,7 @@ public class AddContactActivity extends BaseActivity implements DatePickerDialog
             for (String string : contact.getAddresses()) {
                 parentAddressLayout.addView(createTextView(string, parentAddressLayout, ADDRESS_TYPE));
             }
+            contact.getAddresses().clear();
         }
         if (contact.getEmail().size() > 0) {
             email.setText(contact.getEmail().get(0));
@@ -196,6 +199,7 @@ public class AddContactActivity extends BaseActivity implements DatePickerDialog
             for (String string : contact.getEmail()) {
                 parentEmailLayout.addView(createTextView(string, parentEmailLayout, EMAIL_TYPE));
             }
+            contact.getEmail().clear();
         }
 
     }
