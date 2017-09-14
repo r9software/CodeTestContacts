@@ -1,12 +1,11 @@
-package com.midevs.androidcodetestrodolfoabarca.utils;
+package com.midevs.androidcodetestrodolfoabarca;
 
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.midevs.androidcodetestrodolfoabarca.BaseActivity;
-import com.midevs.androidcodetestrodolfoabarca.R;
 import com.midevs.androidcodetestrodolfoabarca.data.Contact;
+import com.midevs.androidcodetestrodolfoabarca.utils.AlertMaker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,14 +40,15 @@ public class ContactDetailActivity extends BaseActivity {
         TextView lastName = (TextView) findViewById(R.id.contact_detail_last_name);
         lastName.setText(contact.getLastName());
         TextView dateOfBirth = (TextView) findViewById(R.id.contact_detail_date_of_birth);
-
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, contact.getYear());
-        cal.set(Calendar.MONTH, contact.getMonth());
-        cal.set(Calendar.DAY_OF_MONTH, contact.getDay());
-        String birth = format.format(cal.getTime());
-        dateOfBirth.setText(birth);
+        if (contact.getDay() != 0 && contact.getMonth() != 0 && contact.getYear() != 0) {
+            SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.YEAR, contact.getYear());
+            cal.set(Calendar.MONTH, contact.getMonth());
+            cal.set(Calendar.DAY_OF_MONTH, contact.getDay());
+            String birth = format.format(cal.getTime());
+            dateOfBirth.setText(birth);
+        }
         parentPhonesLayout = (LinearLayout) findViewById(R.id.contact_detail_phone_number_parent);
         parentPhonesLayout.removeAllViews();
         parentAddressLayout = (LinearLayout) findViewById(R.id.contact_detail_address_parent);
@@ -74,6 +74,7 @@ public class ContactDetailActivity extends BaseActivity {
         newText.setText(content);
         return parent;
     }
+
     private void initParams() {
         if (getIntent() != null) {
             if (getIntent().getExtras() != null) {

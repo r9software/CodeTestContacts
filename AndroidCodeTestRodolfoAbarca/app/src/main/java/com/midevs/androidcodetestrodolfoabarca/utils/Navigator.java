@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.midevs.androidcodetestrodolfoabarca.AddContactActivity;
+import com.midevs.androidcodetestrodolfoabarca.ContactDetailActivity;
 
 
 /**
